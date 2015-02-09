@@ -1,0 +1,30 @@
+<h1><%= @location.name %></h1>
+<p><h3>events</h3>
+
+
+<table>
+  <tr>
+    <th> Description </th>
+    <th> Date </th>
+    <th> Requires ID? </th>
+  </tr>
+
+  <tbody>
+        <tr>
+          <% @location.events.each do |event| %>
+        <td><%= event.description %></td>
+        <td><%= event.date %></td>
+        <td><%= event.requires_id %></td>
+      </tr>
+
+      </tbody>
+</table>
+
+<br>
+
+<% end %>
+
+<br>
+<%= link_to 'create new event', new_location_event_path(@location) %>
+
+<p><%= link_to 'back', locations_path %></p>
