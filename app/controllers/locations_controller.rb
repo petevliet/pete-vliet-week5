@@ -21,10 +21,14 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    @location = Location.find(params[:location_id])
+    @location = Location.find(params[:id])
   end
 
   def update
+    @location = Location.find(params[:id])
+    @location.update(location_params)
+
+    redirect_to locations_path, notice: 'Location was successfully updated.'
   end
 
   def destroy

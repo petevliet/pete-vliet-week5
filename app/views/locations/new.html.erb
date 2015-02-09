@@ -1,13 +1,7 @@
-<%= form_for [@location] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br />
+<div class="page-header">
+  <h1>New Location</h1>
+</div>
 
-  <%= f.label :address %>:
-  <%= f.text_field :address %><br />
+<%= render 'form' %>
 
-  <%= f.label :zip_code %>:
-  <%= f.number_field :zip_code %><br />
-
-
-<%= f.submit %>
-<% end %>
+<%= link_to 'back', locations_path, class: 'btn btn-default' %>

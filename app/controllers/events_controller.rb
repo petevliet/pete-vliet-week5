@@ -13,9 +13,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.location_id = params[:location_id]
+    @location = Location.find(params[:location_id])
 
     if @event.save
-      redirect_to locations_path, notice: 'Event was successfully created.'
+      redirect_to @location, notice: 'Event was successfully created.'
     end
   end
 
@@ -24,6 +26,11 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event = Event.find(params[:event_id])
+    @event.update(event_params)
+    @location = Location.find(params[:location_id])
+
+    redirect_to
   end
 
   def destroy
