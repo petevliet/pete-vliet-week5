@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
 
-    redirect_to locations_path, notice: 'Location was successfully destroyed.'
+    redirect_to @location, notice: 'Location was successfully destroyed.'
   end
 
   private

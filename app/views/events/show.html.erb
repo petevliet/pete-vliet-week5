@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1><%= @event.description %></h1>
+
+</div>
+<dl class = "dl-horizontal">
+  <dt>Date</dt>
+  <dd><%= @event.date %></dd>
+  <dt>Requires ID????</dt>
+  <dd><%= @event.requires_id %></dd>
+</dl>
+<%= link_to 'edit', edit_location_event_path(@location, @event), class: 'btn btn-info' %>
+<%= link_to 'back', location_path(@location), class: 'btn btn-default' %>
+<%= link_to 'delete', location_event_path(@location, @event), method: :delete, class: 'btn btn-danger' %>
