@@ -33,9 +33,10 @@ class LocationsController < ApplicationController
 
   def destroy
     @location = Location.find(params[:id])
+    @location.events.destroy_all
     @location.destroy
 
-    redirect_to @location, notice: 'Location was successfully destroyed.'
+    redirect_to @location, notice: 'Location and its event(s) were successfully destroyed.'
   end
 
   private
