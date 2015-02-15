@@ -1,9 +1,13 @@
 <div class= "page-header">
 
   <div class="pull-right">
-  <%= link_to 'Create location', new_location_path, class: 'btn btn-info' %>
-  <%= link_to 'New User', new_user_path, class: 'btn btn-info' %>
-  <%= link_to 'Sign In', signin_path %>
+    <% if not current_user %>
+      <%= link_to 'Sign In', signin_path, class: 'btn btn-info' %>
+      <%= link_to 'New User', new_user_path, class: 'btn btn-info' %>
+    <% else %>
+      <%= link_to 'Create location', new_location_path, class: 'btn btn-info' %>
+      <%= link_to 'Sign Out', signout_path, class: 'btn btn-info' %>
+    <% end %>
   </div>
 
   <h1>Locations</h1>
