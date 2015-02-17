@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless current_user flash[:alert] = 'not signed in'
-      redirect_to signin_path
+      redirect_to signin_path unless current_user
     end
   end
 
